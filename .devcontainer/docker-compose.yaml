@@ -1,0 +1,30 @@
+services:
+  docker_python_ml_template:
+    container_name: docker_python_ml_template
+    build:
+      context: .
+      args:
+        - USER_NAME=${USER_NAME}
+      dockerfile: dockerfile
+    image: n622jwith/docker_python_ml_template:latest
+    environment:
+      - DISPLAY=${DISPLAY}
+      - "QT_X11_NO_MITSHM=1"
+    volumes:
+      # GUI
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority/:/home/${USER_NAME}/.Xauthority:ro
+      # ssh key
+      - $HOME/.ssh:/home/${USER_NAME}/.ssh:ro
+      # workspace
+      - $HOME/ML/docker_python_ml_template/:/home/${USER_NAME}/docker_python_ml_template
+    hostname: docker_python_ml_template
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    tty: true
+    user: "${UID}:${GID}"

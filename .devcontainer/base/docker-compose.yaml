@@ -1,0 +1,16 @@
+services:
+  ml_base:
+    build:
+      context: .
+      args:
+        - USER_NAME=${USER_NAME}
+        - GROUP_NAME=${GROUP_NAME}
+        - PASSWORD=${PASSWORD}
+        - UID=${UID}
+        - GID=${GID}
+        - GIT_USER_NAME=${GIT_USER_NAME}
+        - GIT_USER_EMAIL=${GIT_USER_EMAIL}
+        - PYTHON_VERSION=${PYTHON_VERSION}
+        - CUDA_VERSION=${CUDA_VERSION}
+      dockerfile: dockerfile
+    image: n622jwith/ml_base:latest
