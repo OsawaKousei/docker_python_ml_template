@@ -12,10 +12,8 @@ WORKDIR /home/${USER_NAME}
 # Install python packages
 # copy requirements.txt
 COPY requirements.txt /home/${USER_NAME}/requirements.txt
-# create and activate venv, then install python packages
-RUN python3 -m venv "/home/${USER_NAME}/.venv" && \
-    echo "source /home/${USER_NAME}/.venv/bin/activate" >> ~/.bashrc && \
-    /bin/bash -c "source /home/${USER_NAME}/.venv/bin/activate && pip3 install --no-cache-dir -r requirements.txt"
+# Install python packages
+RUN /bin/bash -c "source /home/${USER_NAME}/.venv/bin/activate && pip3 install --no-cache-dir -r requirements.txt"
 
 # Copy setup.sh and run
 COPY setup.sh /home/${USER_NAME}/setup.sh
