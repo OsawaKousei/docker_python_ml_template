@@ -36,4 +36,5 @@ This template contain the following setting.
 1. Define necessary python packages in .devcontainer/requirements.txt
 1. Build docker image`cd ./.devcontainer && docker compose --env-file ../.env build`
 1. Launch container and connect to it using dev container
+
 Of course, you can modify any setting in this repository for your preference
