@@ -1,3 +1,4 @@
+# Build base image before building this image
 FROM n622jwith/ml_base:latest
 
 # Set shell option

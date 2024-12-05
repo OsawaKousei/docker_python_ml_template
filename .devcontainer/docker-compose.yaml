@@ -1,3 +1,5 @@
+# Change the service name and container name, hostname to your project name
+# Change the volumes to your project path
 services:
   docker_python_ml_template:
     container_name: docker_python_ml_template

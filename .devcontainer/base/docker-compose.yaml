@@ -1,3 +1,6 @@
+# Description: Docker compose file for ml_base image
+# Assumes that ml_base image is used as a base image for other images
+# Therefore, it is not intended to be run as a container
 services:
   ml_base:
     build:
