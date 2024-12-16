@@ -21,6 +21,7 @@ services:
       # workspace
       - $HOME/ML/docker_python_ml_template/:/home/${USER_NAME}/docker_python_ml_template
     hostname: docker_python_ml_template
+    shm_size: '2gb'
     deploy:
       resources:
         reservations:
